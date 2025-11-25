@@ -1,0 +1,53 @@
+amrutharani@amrutharani-HP-Pavilion-Laptop-15-eg2xxx:~/Documents/pii_ner_assignment_IITB/pii_ner_assignment_IITB$ python3 src/predict.py \
+  --model_dir out \
+  --input data/dev.jsonl \
+  --output out/dev_pred.json
+Wrote predictions for 175 utterances to out/dev_pred.json
+amrutharani@amrutharani-HP-Pavilion-Laptop-15-eg2xxx:~/Documents/pii_ner_assignment_IITB/pii_ner_assignment_IITB$ python3 src/predict.py   --model_dir out   --input data/dev.jsonl   --output out/dev_pred.json
+Wrote predictions for 175 utterances to out/dev_pred.json
+amrutharani@amrutharani-HP-Pavilion-Laptop-15-eg2xxx:~/Documents/pii_ner_assignment_IITB/pii_ner_assignment_IITB$ python3 src/eval_span_f1.py \
+  --gold data/dev.jsonl \
+  --pred out/dev_pred.json
+Per-entity metrics:
+CITY            P=1.000 R=1.000 F1=1.000
+CREDIT_CARD     P=0.885 R=0.697 F1=0.780
+DATE            P=1.000 R=1.000 F1=1.000
+EMAIL           P=0.831 R=0.857 F1=0.844
+LOCATION        P=0.653 R=1.000 F1=0.790
+PERSON_NAME     P=0.883 R=1.000 F1=0.938
+PHONE           P=0.732 R=1.000 F1=0.846
+
+Macro-F1: 0.885
+
+PII-only metrics: P=0.888 R=0.966 F1=0.925
+Non-PII metrics: P=0.892 R=1.000 F1=0.943
+amrutharani@amrutharani-HP-Pavilion-Laptop-15-eg2xxx:~/Documents/pii_ner_assignment_IITB/pii_ner_assignment_IITB$ python3 src/predict.py \
+  --model_dir out \
+  --input data/stress.jsonl \
+  --output out/stress_pred.json
+Wrote predictions for 100 utterances to out/stress_pred.json
+amrutharani@amrutharani-HP-Pavilion-Laptop-15-eg2xxx:~/Documents/pii_ner_assignment_IITB/pii_ner_assignment_IITB$ python3 src/predict.py   --model_dir out   --input data/stress.jsonl   --output out/stress_pred.json
+Wrote predictions for 100 utterances to out/stress_pred.json
+amrutharani@amrutharani-HP-Pavilion-Laptop-15-eg2xxx:~/Documents/pii_ner_assignment_IITB/pii_ner_assignment_IITB$ python3 src/eval_span_f1.py \
+  --gold data/stress.jsonl \
+  --pred out/stress_pred.json
+Per-entity metrics:
+CITY            P=1.000 R=1.000 F1=1.000
+CREDIT_CARD     P=0.000 R=0.000 F1=0.000
+DATE            P=1.000 R=1.000 F1=1.000
+EMAIL           P=0.182 R=0.200 F1=0.190
+PERSON_NAME     P=0.488 R=1.000 F1=0.656
+PHONE           P=0.392 R=1.000 F1=0.563
+
+Macro-F1: 0.568
+
+PII-only metrics: P=0.516 R=0.745 F1=0.609
+Non-PII metrics: P=0.494 R=1.000 F1=0.661
+amrutharani@amrutharani-HP-Pavilion-Laptop-15-eg2xxx:~/Documents/pii_ner_assignment_IITB/pii_ner_assignment_IITB$ python3 src/measure_latency.py \
+  --model_dir out \
+  --input data/dev.jsonl \
+  --runs 50
+Latency over 50 runs (batch_size=1):
+  p50: 11.33 ms
+  p95: 21.45 ms
+amrutharani@amrutharani-HP-Pavilion-Laptop-15-eg2xxx:~/Documents/pii_ner_assignment_IITB/pii_ner_assignment_IITB$ 
